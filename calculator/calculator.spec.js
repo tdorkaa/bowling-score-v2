@@ -13,5 +13,9 @@ describe('calculator', function () {
         it('should return 18 in case the 1st frame is a spare and the 3rd roll is 4', function () {
             expect(calculate([[1, '/'], [4, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]])).to.equal(18);
         });
+
+        it('should return 18 in case the 10th frame is a spare and following roll is 4', function () {
+            expect(calculate([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [2, '/', 4]])).to.equal(18);
+        });
     });
 });
