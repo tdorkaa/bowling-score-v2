@@ -1,9 +1,13 @@
 module.exports = (frames) => {
     const frameValuesInOneArray = frames.reduce((acc, curV) => [...acc, ...curV]);
 
-    const finalScore = frameValuesInOneArray.reduce((acc, curV, index, arr) => {
+    return getFinalScore(frameValuesInOneArray);
+}
+
+function getFinalScore(framesInOneArray) {
+    return framesInOneArray.reduce((acc, curV, index, arr) => {
         if(isSpare(curV)) {
-          return getScoreForSpare(acc, arr, index);
+            return getScoreForSpare(acc, arr, index);
         }
 
         if (isStrike(curV)) {
@@ -12,8 +16,6 @@ module.exports = (frames) => {
 
         return acc + curV;
     }, 0);
-
-    return finalScore;
 }
 
 function isSpare(value) {
