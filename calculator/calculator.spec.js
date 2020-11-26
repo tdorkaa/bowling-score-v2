@@ -18,4 +18,10 @@ describe('calculator', function () {
             expect(calculate([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [2, '/', 4]])).to.equal(18);
         });
     });
+
+    describe('in case of strike', function () {
+        it.only('should return 18 in case the 1st frame is a spare and the 3rd roll is 4', function () {
+            expect(calculate([['X'], [4, 4], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]])).to.equal(26);
+        });
+    });
 });

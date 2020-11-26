@@ -6,8 +6,12 @@ module.exports = (frames) => {
           return getScoreForSpare(acc, arr, index);
         }
 
+        if (isStrike(curV)) {
+            return getScoreForStrike(acc, arr, index);
+        }
+
         return acc + curV;
-    });
+    }, 0);
 
     return finalScore;
 }
@@ -18,4 +22,12 @@ function isSpare(value) {
 
 function getScoreForSpare(acc, arr, index) {
     return acc + (10 - arr[index - 1]) + arr[index + 1];
+}
+
+function isStrike(value) {
+    return value === 'X';
+}
+
+function getScoreForStrike(acc, arr, index) {
+    return acc + 10 + arr[index + 1] + arr[index + 2];
 }
